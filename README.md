@@ -18,7 +18,7 @@ This project is a comprehensive travel booking website developed for a hackathon
 
 ## Project Structure
 
-All the folder and files are in the ## Master Branch
+All the folder and files are in the **Master Branch**
 
 ```plaintext
 project-root/
