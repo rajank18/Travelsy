@@ -46,14 +46,8 @@ project-root/
 │   ├── hotel.js            # JavaScript for Hotel Page
 │   ├── payment.js          # JavaScript for Payment Gateway Page
 │
-├── images/                 # Folder for images
-│   ├── cab/                # Images related to Cab Booking
-│   ├── flight/             # Images related to Flight Booking
-│   ├── train/              # Images related to Train Booking
-│   ├── hotel/              # Images related to Hotel Page
-│
 └── assets/
     ├── fonts/              # Custom fonts
     ├── icons/              # Icons for use across the site
     ├── videos/             # Videos if needed
-
+    ├── images/             # Images for all pages 
