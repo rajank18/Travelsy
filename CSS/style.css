@@ -11,24 +11,24 @@ body {
 .navbar {
     display: flex;
     align-items: center;
-    position: fixed;
+    position: fixed; /* Changed to fixed */
     top: 0;
     left: 0;
     width: 100%;
     height: 80px; 
-    z-index: 1000;
+    z-index: 1000; /* Higher z-index to stay on top */
     padding: 0 20px;
-    background-color: rgba(255, 255, 255, 0.164);
+    background-color: #001a70; /* Semi-transparent background */
 }
 
 .navbar .img {
-    margin-right: auto; 
+    margin-right: auto;
 }
 
 .navbar .img img {
     height: 80px; 
     width: auto;
-    cursor: pointer; 
+    cursor: pointer;
 }
 
 .navbar .signup, .navbar .signin {
@@ -51,22 +51,73 @@ button:hover {
 }
 
 .sliders {
-    position: relative;
-    top: 0;
-    left: 0;
     width: 100%;
-    height: calc(80vh - 80px);
+    height: calc(50vh - 80px); /* Full viewport height minus navbar height */
+    overflow: hidden;
+    position: relative;
+    top: 0px;
+    margin-bottom: 150px;
 }
 
 .carousel-item img {
-    height: 60vh; 
-    object-fit: contain;
+    height: 50vh; /* Full height carousel */
+    object-fit: cover;
     width: 100%;
 }
 
-.footer , .explore , .book , .packages{
-    background-color: #333; 
-    color: white; 
+ .book, .packages, .footer {
+    padding: 50px 0;
+    color: white;
     text-align: center;
+    background-color: grey;
     width: 100%;
 }
+
+.footer{
+    background-color: #001a70 !important;
+}
+.explore {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(255, 255, 255);
+}
+
+.search {
+    position: relative;
+    width: 500px;
+    margin-bottom: 50px;
+    margin-top: 50px;
+}
+
+.search input {
+    width: 100%;
+    height: 50px;
+    font-size: 20px;
+    border-radius: 25px;
+    border: none;
+    outline: none;
+    background-color: #000000;
+    color: white;
+    text-align: center;
+    padding-right: 50px; 
+}
+
+input::placeholder {
+    color: white;
+    text-align: center;
+}
+
+.search svg {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 30px; 
+    height: 30px;
+    fill: #ffffff; 
+    background-color: white;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
