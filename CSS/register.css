@@ -1,0 +1,142 @@
+/* login.css */
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'DM Sans', sans-serif;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+header {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  padding: 20px;
+  background-color: #001a70;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 80px;
+}
+
+header .logo {
+  font-size: 28px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  color: #ffa857;
+}
+
+header .navigation a {
+  color: #ffa857;
+  margin-right: 20px;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+header .navigation button {
+  background-color: #ffa857;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+}
+header a .imge img {
+  height: 50px; 
+  width: auto;
+  cursor: pointer;
+}
+.wrapper {
+  background-color: white;
+  width: 400px;
+  padding: 40px;
+  border-radius: 15px;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+  position: relative;
+}
+
+.wrapper .icon-close {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.form-box h2 {
+  color: #001a70;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.input-box {
+  position: relative;
+  margin-bottom: 30px;
+}
+
+.input-box .icon {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 10px;
+  color: #001a70;
+}
+
+.input-box input {
+  width: 100%;
+  padding: 10px 40px;
+  border: 1px solid #001a70;
+  border-radius: 10px;
+  outline: none;
+  background: none;
+  font-size: 16px;
+  color: #001a70;
+}
+
+.input-box label {
+  position: absolute;
+  top: -20px;
+  left: 10px;
+  color: #001a70;
+}
+
+.remember-forgot label {
+  font-size: 14px;
+  color: #001a70;
+}
+
+.btn {
+  width: 100%;
+  padding: 10px;
+  background-color: #ffa857;
+  border: none;
+  border-radius: 10px;
+  color: white;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: #ffa857;
+}
+
+.login p {
+  color: #001a70;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.login p a {
+  color: orange;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.login p a:hover {
+  text-decoration: underline;
+}
