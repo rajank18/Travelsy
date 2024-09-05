@@ -1,0 +1,21 @@
+
+.navbar{
+    width: 98% !important;
+}
+
+
+header h1{
+    font-size: 120px;
+    display: flex;
+    justify-content: center;
+}
+
+.info {
+    display: flex;
+    justify-content: space-between; /* Adjusts spacing between items */
+}
+
+
+map{
+    flex: 1;
+}
