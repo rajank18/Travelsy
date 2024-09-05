@@ -4,19 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Explore</title>
+    <link rel="stylesheet" href="/Travelsy/CSS/explore.css">
+    <link rel="stylesheet" href="/Travelsy/CSS/style.css">
 </head>
 <body>
+    <div class="navbar">
+        <div class="img">
+            <a href="/Travelsy/HTML/index.html"><img src="/Travelsy/Assets/images/LOGO.png" alt=""></a>
+        </div>
+
+        <div class="signup">
+           <a href="/Travelsy/HTML/register.html"> <button>Create Account</button></a>
+        </div>
+        <div class="signin">
+            <a href="/Travelsy/HTML/login.html"><button>Log In</button></a>
+        </div>
+    </div>
+    
     <header>
         <h1 id="cityName"></h1>
     </header>
     
-    <main>
-        <div id="cityInfo">
-            
-        </div>
+    <div class="info">
+        <div id="cityInfo"></div>
         <div id="map"></div>
-
-    </main>
+    </div>
 
     <h1>Search for Places Photos in <h1 id="head"></h1> </h1>
     <input type="text" id="placeInput" placeholder="Enter place name...">
