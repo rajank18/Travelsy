@@ -18,7 +18,8 @@ body {
     height: 80px; 
     z-index: 1000; /* Higher z-index to stay on top */
     padding: 0 20px;
-    background-color: #001a70; /* Semi-transparent background */
+    background-color: #021554; /* Semi-transparent background */
+  
 }
 
 .navbar .img {
@@ -73,9 +74,7 @@ button:hover {
     width: 100%;
 }
 
-.footer{
-    background-color: #001a70 !important;
-}
+
 .explore {
     display: flex;
     justify-content: center;
@@ -119,5 +118,10 @@ input::placeholder {
     background-color: white;
     cursor: pointer;
     border-radius: 50%;
+}
+
+.footer{
+    background-color: #021554 !important;
+
 }
 
