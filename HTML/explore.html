@@ -1,12 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Explore</title>
     <link rel="stylesheet" href="/Travelsy/CSS/explore.css">
     <link rel="stylesheet" href="/Travelsy/CSS/style.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:wght@100;400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css" />
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
 </head>
+
 <body>
     <div class="navbar">
         <div class="img">
@@ -14,32 +26,53 @@
         </div>
 
         <div class="signup">
-           <a href="/Travelsy/HTML/register.html"> <button>Create Account</button></a>
+            <a href="/Travelsy/HTML/register.html"> <button>Create Account</button></a>
         </div>
         <div class="signin">
             <a href="/Travelsy/HTML/login.html"><button>Log In</button></a>
         </div>
     </div>
-    
+
     <header>
-        <h1 id="cityName"></h1>
+        <h1 id="cityName">MUMBAI</h1>
     </header>
-    
+
     <div class="info">
+        <div id="image"><img src="" alt=""></div>
         <div id="cityInfo"></div>
-        <div id="map"></div>
     </div>
 
-    <h1>Search for Places Photos in <h1 id="head"></h1> </h1>
-    <input type="text" id="placeInput" placeholder="Enter place name...">
-    <button onclick="fetchPhotos()">Get Photos</button>
+    <div class="photohead">
+        <h1>Search for Places Photos in <h1 id="head"></h1>
+        </h1>
+    </div>
+    <div class="photosearch">
+        <input type="text" id="placeInput" placeholder="Enter place name...">
+        <button onclick="fetchPhotos()">Get Photos</button>
+    </div>
 
     <div class="images" id="imagesContainer"></div>
-    
+
+    <div class="rest">
+        <h1>Best Hotels in <h1 id="hotelhead"></h1></h1>
+    </div>  
+    <div id="hotel-list"></div>
+
+
+    <div id="search-bar">
+        <input type="text" id="city-input" placeholder="Enter city name">
+        <button id="search-button">Search</button>
+        <p id="distance-info"></p>
+        <p id="transport-info"></p>
+    </div>
+    <div id="map"></div>
+
+
     <footer>
-        <p>&copy; 2024 Travel Website. All rights reserved.</p>
+        <p>&copy; 2024 Travelsy. All rights reserved.</p>
     </footer>
-    
+
     <script src="/Travelsy/JS/explore.js"></script>
 </body>
+
 </html>
