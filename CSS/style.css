@@ -53,27 +53,28 @@ button:hover {
 
 .sliders {
     width: 100%;
-    height: calc(50vh - 80px); /* Full viewport height minus navbar height */
+    height: calc(100vh - 80px); 
     overflow: hidden;
     position: relative;
     top: 0px;
-    margin-bottom: 150px;
+    margin-bottom: 10px;
 }
 
 .carousel-item img {
-    height: 50vh; /* Full height carousel */
+    height: 80vh;
     object-fit: cover;
     width: 100%;
+    position: relative;
 }
 
- .book, .packages, .footer {
+.footer{
     padding: 50px 0;
     color: white;
     text-align: center;
-    background-color: grey;
-    width: 100%;
+    background-color: #001a70 !important;
+    width: 80%;
+    margin: auto;
 }
-
 
 .explore {
     display: flex;
