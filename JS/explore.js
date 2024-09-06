@@ -22,6 +22,7 @@ window.onload = function () {
 
         fetchCityData(cityName);
         searchHotels(cityName);
+        searchCity(cityName);
     }
 }
 
@@ -79,32 +80,59 @@ async function fetchPhotos() {
         alert("Please enter a place name.");
     }
 }
-
-var map = L.map('map').setView([51.505, -0.09], 13);
 var userMarker = null;
 var searchMarker = null;
+var userLocation = null;
+var searchedLocation = null;
 
-L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+// Initialize map without setting a view initially
+var map = L.map('map');
+
+// Tile Layers (Customizable Map Layers)
+var streets = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
 }).addTo(map);
 
-var geocoder = L.Control.Geocoder.nominatim();
-var userLocation = null;
-var searchedLocation = null;
+var satellite = L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png');
 
+var baseMaps = {
+    "Streets": streets,
+    "Satellite": satellite
+};
+L.control.layers(baseMaps).addTo(map);
+
+// Geocoder
+var geocoder = L.Control.Geocoder.nominatim();
+
+// Function to search for the city
 function searchCity(city) {
     geocoder.geocode(city, function(results) {
         if (results.length > 0) {
             searchedLocation = results[0].center;
-            map.setView(searchedLocation, 13);
             clearMarkers(); // Clear existing markers
             searchMarker = L.marker(searchedLocation).addTo(map)
                 .bindPopup(results[0].name)
                 .openPopup();
 
             if (userLocation) {
+                // Smooth transition to searched location
+                map.flyTo(searchedLocation, 13, {
+                    duration: 2 // Duration of the animation in seconds
+                });
+
                 displayDistance(userLocation, searchedLocation);
+
+                // Add routing control with a slight delay to ensure it's not blocking the animation
+                setTimeout(() => {
+                    L.Routing.control({
+                        waypoints: [
+                            L.latLng(userLocation),
+                            L.latLng(searchedLocation)
+                        ],
+                        routeWhileDragging: true
+                    }).addTo(map);
+                }, 500); // 0.5 second delay before adding routing control
             }
         } else {
             alert('City not found');
@@ -114,7 +142,7 @@ function searchCity(city) {
 
 function displayDistance(loc1, loc2) {
     const distance = loc1.distanceTo(loc2); 
-    document.getElementById('distance-info').textContent = `Distance to the location you searched is: ${Math.round(distance / 1000)} km`; 
+    document.getElementById('distance-info').textContent = `Distance to the location from your current location is: ${Math.round(distance / 1000)} km`; 
     recommendTransport(distance);
 }
 
@@ -141,41 +169,72 @@ function clearMarkers() {
     }
 }
 
-document.getElementById('search-button').addEventListener('click', function() {
-    var city = document.getElementById('city-input').value;
-    searchCity(city);
-});
+// Track and display user's location
+navigator.geolocation.getCurrentPosition(success, error);
 
-navigator.geolocation.watchPosition(success, error);
-
-let marker, circle, zoomed;
 function success(pos) {
     const lat = pos.coords.latitude;
     const long = pos.coords.longitude;
     const accu = pos.coords.accuracy;
 
     userLocation = L.latLng(lat, long); // Save the user's location
-    
-    if (marker) {
-        map.removeLayer(marker);
-        map.removeLayer(circle);
-    }
+
+    // Center the map on the user's current location
     map.setView(userLocation, 13);
-    marker = L.marker(userLocation).addTo(map);
-    circle = L.circle(userLocation, { radius: accu }).addTo(map);
-
-    if (!zoomed) {
-        zoomed = map.fitBounds(circle.getBounds());
-    }
-
-    if (!searchedLocation) {
-        userMarker = marker;
-    }
+    
+    // Add user marker and circle
+    userMarker = L.marker(userLocation).addTo(map);
+    L.circle(userLocation, { radius: accu }).addTo(map);
 
     if (searchedLocation) {
         displayDistance(userLocation, searchedLocation);
     }
 }
+function displayDistance(loc1, loc2) {
+    const distance = loc1.distanceTo(loc2); 
+    document.getElementById('distance-info').textContent = `Distance to the location from your current location is: ${Math.round(distance / 1000)} km`;
+    
+    const transport = recommendTransport(distance);
+    document.getElementById('transport-info').textContent = `Recommended mode of transport: ${transport}`;
+    
+    const time = calculateTravelTime(distance, transport);
+    document.getElementById('time-info').textContent = `Estimated travel time from your location: ${time}`;
+}
+
+function recommendTransport(distance) {
+    let transport;
+    if (distance <= 1000) {
+        transport = "Walking or Biking";
+    } else if (distance <= 50000) {
+        transport = "Car or Public Transit";
+    } else if (distance <= 1000000) {
+        transport = "Train";
+    } else {
+        transport = "Flight";
+    }
+    return transport;
+}
+
+function calculateTravelTime(distance, transport) {
+    // Convert distance to kilometers
+    const distanceKm = distance / 1000;
+    
+    // Average speeds in km/h
+    const speeds = {
+        "Walking or Biking": 5,      
+        "Car or Public Transit": 50, // Average car/public transit speed
+        "Train": 100,                // Average train speed
+        "Flight": 800                // Average flight speed
+    };
+    
+    const speed = speeds[transport] || 50; // Default to 50 km/h if transport not found
+    const timeHours = distanceKm / speed;  // Time in hours
+    const hours = Math.floor(timeHours);
+    const minutes = Math.round((timeHours - hours) * 60); // Convert remaining fraction to minutes
+    
+    return `${hours}h ${minutes}m`;
+}
+
 
 function error(err) {
     if (err.code === 1) {
@@ -184,6 +243,12 @@ function error(err) {
         alert("Cannot find current location.");
     }
 }
+
+// Automatically search a city if specified
+if (typeof cityName !== 'undefined') {
+    searchCity(cityName); // Replace 'cityName' with an actual value if required
+}
+
 
 
 let currentPage = 1;

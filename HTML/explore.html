@@ -13,10 +13,15 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
         integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
     <link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css" />
+    <!-- Add this in your HTML <head> -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.css" />
+    <script src="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.js"></script>
+
 
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
         integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
     <script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
+
 </head>
 
 <body>
@@ -26,7 +31,7 @@
         </div>
 
         <div class="signup">
-            <a href="/Travelsy/HTML/register.html"> <button>Create Account</button></a>
+            <a href="/Travelsy/HTML/register.html"> <button>Sign Up</button></a>
         </div>
         <div class="signin">
             <a href="/Travelsy/HTML/login.html"><button>Log In</button></a>
@@ -54,16 +59,17 @@
     <div class="images" id="imagesContainer"></div>
 
     <div class="rest">
-        <h1>Best Restaurants in <h1 id="hotelhead"></h1></h1>
-    </div>  
+        <h1>Best Restaurants in <h1 id="hotelhead"></h1>
+        </h1>
+    </div>
     <div id="hotel-list"></div>
 
 
     <div id="search-bar">
-        <input type="text" id="city-input" placeholder="Enter city name">
-        <button id="search-button">Search</button>
         <p id="distance-info"></p>
         <p id="transport-info"></p>
+        <p id="time-info"></p>
+
     </div>
     <div id="map"></div>
 
@@ -71,7 +77,7 @@
     <footer>
         <p>&copy; 2024 Travelsy. All rights reserved.</p>
     </footer>
-    
+
     <script src="/Travelsy/JS/explore.js"></script>
 </body>
 
