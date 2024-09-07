@@ -17,6 +17,7 @@ body {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     max-width: 500px;
     width: 100%;
+    background-size: cover;
     backdrop-filter: blur(20px);
     background: rgba(200, 200, 200, 0.1);
 }
@@ -24,6 +25,7 @@ h1 {
     margin-top: 0;
     font-size: 1.5rem;
     text-align: center;
+    color: black;
 }
 .review-form {
     display: flex;
@@ -40,7 +42,7 @@ h1 {
     display: none;
 }
 .rating label {
-    color: #ddd;
+    color: #fff;
     cursor: pointer;
     display: inline-block;
     position: relative;
@@ -69,6 +71,12 @@ textarea {
     border: 1px solid #ddd;
     font-size: 1rem;
     resize: vertical;
+}
+a{
+    text-decoration: none;
+}
+#home{
+    margin: 10px;
 }
 #message{
     text-align: center;
