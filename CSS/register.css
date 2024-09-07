@@ -57,20 +57,22 @@ body {
 button {
   outline: none;
   border: none;
-  background-color: #ffa857;
+  background-color: #021554;
+  color: white !important;
   width: 12vh;
-  color: rgb(0, 0, 0);
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-  font-weight: 300;
-  font-size: 20px;
-  margin: 0;
-  height: 30px; 
-  border-radius: 25px;
+  font-size: 1.5rem !important;
+  font-family: "SUSE", sans-serif;
+  font-weight: 600;
+  margin: 10px;
+  height: 35px; 
+  text-align: center;
+  border-radius: 10px;
   cursor: pointer;
 }
 
 button:hover {
-  background-color: #fc993c;
+  background-color: #ffa857;
+  color: #333333 !important;
 }
 
 header {
