@@ -33,11 +33,11 @@ app.get('/login', (req, res) => {
 });
 
 app.post('/register', (req, res) => {
-    const { username, email, password } = req.body;
+    const { username, password } = req.body;
     const hashedPassword = bcrypt.hashSync(password, 8);
 
     const query = 'INSERT INTO users (username, email, password) VALUES (?, ?, ?)';
-    db.query(query, [username, email, hashedPassword], (err, result) => {
+    db.query(query, [username, hashedPassword], (err, result) => {
         if (err) {
             console.error('Error inserting into users:', err);
             res.render('register', { error: 'Registration failed. Please try again.' });
@@ -67,4 +67,4 @@ app.post('/login', (req, res) => {
         }
     });
 });
-app.listen(3111);
+app.listen(3100);
