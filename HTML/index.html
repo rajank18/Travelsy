@@ -13,6 +13,7 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="/Travelsy/CSS/loader.css">
     <link rel="stylesheet" href="/Travelsy/CSS/style.css">
 </head>
 
@@ -28,6 +29,18 @@
         <div class="signin">
             <a href="/Travelsy/HTML/login.html"><button>Log In</button></a>
         </div>
+    </div>
+
+    <div id="loader" class="loader">
+        <div class="wait">Loading...</div>
+        <div class="iata_code departure_city"></div>
+        <div class="plane">
+            <img src="https://zupimages.net/up/19/34/4820.gif" class="plane-img">
+        </div>
+        <div class="earth-wrapper">
+            <div class="earth"></div>
+        </div>  
+        <div class="iata_code arrival_city"></div>
     </div>
     <div class="explore">
         <div class="search">
@@ -66,40 +79,139 @@
     </div>
 
 
-    <div class="container-xxl py-5 wow fadeInUp" data-wow-delay="0.1s"></div>
+    <section id="review" class="review-area ptb_100">
         <div class="container">
-            <div class="text-center">
-                <h6 class="section-title bg-white text-center text-primary px-3">Testimonial</h6>
-                <h1 class="mb-5">Our Clients Say!!!</h1>
+            <div class="row justify-content-center">
+                <div class="col-12 col-md-10 col-lg-8">
+                    
+                    <div class="section-heading text-center">
+                        <span class="d-inline-block rounded-pill shadow-sm fw-5 px-4 py-2 mb-3">
+                            <i class="far fa-lightbulb text-primary mr-1"></i>
+                            <span class="text-primary">Customer's</span>
+                            Reviews
+                        </span>
+                        <h2 class="text-capitalize">What our customers are saying</h2>
+                        <p class="d-none d-sm-block mt-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                            Laborum obcaecati dignissimos quae quo ad iste ipsum officiis deleniti asperiores sit.
+                        </p>
+                        <p class="d-block d-sm-none mt-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                            Laborum obcaecati.</p>
+                    </div>
+                </div>
             </div>
-            <div class="owl-carousel testimonial-carousel position-relative">
-                <div class="testimonial-item bg-white text-center border p-4">
-                    <img class="bg-white rounded-circle shadow p-1 mx-auto mb-3" src="/Travelsy/Assets/images/GUJARAT.jpg" style="width: 80px; height: 80px;">
-                    <h5 class="mb-0">John Doe</h5>
-                    <p>New York, USA</p>
-                    <p class="mb-0">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit diam amet diam et eos. Clita erat ipsum et lorem et sit.</p>
+            <div class="row">
+                <div class="col-12 col-md-6 col-lg-4 res-margin">
+                    
+                    <div class="single-review card">
+                        
+                        <div class="card-top p-4">
+                            <div class="review-icon">
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                            </div>
+                            <h4 class="text-primary mt-4 mb-3">Excellent service &amp; support!!</h4>
+                           
+                            <div class="review-text">
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis nam id facilis,
+                                    provident doloremque placeat eveniet molestias laboriosam. Optio, esse.</p>
+                            </div>
+                           
+                            <div class="quot-icon">
+                                <img class="avatar-md" src="#" alt="">
+                            </div>
+                        </div>
+                       
+                        <div class="reviewer media bg-gray p-4">
+                            
+                            <div class="reviewer-thumb">
+                                <img class="avatar-lg radius-100" src="assets/img/avatar/avatar-1.png" alt="">
+                            </div>
+                            
+                            <div class="reviewer-meta media-body align-self-center ml-4">
+                                <h5 class="reviewer-name color-primary mb-2">Junaid Hasan</h5>
+                                <h6 class="text-secondary fw-6">From Goa</h6>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="testimonial-item bg-white text-center border p-4">
-                    <img class="bg-white rounded-circle shadow p-1 mx-auto mb-3" src="/Travelsy/Assets/images/GUJARAT.jpg" style="width: 80px; height: 80px;">
-                    <h5 class="mb-0">John Doe</h5>
-                    <p>New York, USA</p>
-                    <p class="mt-2 mb-0">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit diam amet diam et eos. Clita erat ipsum et lorem et sit.</p>
+                <div class="col-12 col-md-6 col-lg-4 res-margin">
+                   
+                    <div class="single-review card">
+                        
+                        <div class="card-top p-4">
+                            <div class="review-icon">
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star-half-alt text-warning"></i>
+                            </div>
+                            <h4 class="text-primary mt-4 mb-3">Nice work! Keep it up</h4>
+                            
+                            <div class="review-text">
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis nam id facilis,
+                                    provident doloremque placeat eveniet molestias laboriosam. Optio, esse.</p>
+                            </div>
+                          
+                            <div class="quot-icon">
+                                <img class="avatar-md" src="assets/img/icon/quote.png" alt="">
+                            </div>
+                        </div>
+                        
+                        <div class="reviewer media bg-gray p-4">
+                            
+                            <div class="reviewer-thumb">
+                                <img class="avatar-lg radius-100" src="assets/img/avatar/avatar-2.png" alt="">
+                            </div>
+                        
+                            <div class="reviewer-meta media-body align-self-center ml-4">
+                                <h5 class="reviewer-name color-primary mb-2">Mahesh Nagpurkar</h5>
+                                <h6 class="text-secondary fw-6">From Gujarat</h6>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="testimonial-item bg-white text-center border p-4">
-                    <img class="bg-white rounded-circle shadow p-1 mx-auto mb-3" src="/Travelsy/Assets/images/GUJARAT.jpg" style="width: 80px; height: 80px;">
-                    <h5 class="mb-0">John Doe</h5>
-                    <p>New York, USA</p>
-                    <p class="mt-2 mb-0">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit diam amet diam et eos. Clita erat ipsum et lorem et sit.</p>
-                </div>
-                <div class="testimonial-item bg-white text-center border p-4">
-                    <img class="bg-white rounded-circle shadow p-1 mx-auto mb-3" src="/Travelsy/Assets/images/GUJARAT.jpg" style="width: 80px; height: 80px;">
-                    <h5 class="mb-0">John Doe</h5>
-                    <p>New York, USA</p>
-                    <p class="mt-2 mb-0">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit diam amet diam et eos. Clita erat ipsum et lorem et sit.</p>
+                <div class="col-12 col-md-6 col-lg-4">
+            
+                    <div class="single-review card">
+                        <div class="card-top p-4">
+                            <div class="review-icon">
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                            </div>
+                            <h4 class="text-primary mt-4 mb-3">Great support!!</h4>
+            
+                            <div class="review-text">
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis nam id facilis,
+                                    provident doloremque placeat eveniet molestias laboriosam. Optio, esse.</p>
+                            </div>
+                        
+                            <div class="quot-icon">
+                                <img class="avatar-md" src="assets/img/icon/quote.png" alt="">
+                            </div>
+                        </div>
+                        <div class="reviewer media bg-gray p-4">
+                        
+                            <div class="reviewer-thumb">
+                                <img class="avatar-lg radius-100" src="assets/img/avatar/avatar-3.png" alt="">
+                            </div>
+                        
+                            <div class="reviewer-meta media-body align-self-center ml-4">
+                                <h5 class="reviewer-name color-primary mb-2">Ajay Deol</h5>
+                                <h6 class="text-secondary fw-6">From Delhi</h6>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+    </section>
 
    
 
@@ -179,6 +291,17 @@
         </div>
     </footer>
     <script src="/Travelsy/JS/main.js"></script>
+    <script>
+        // JavaScript to hide the loader after the page loads
+        window.onload = function() {
+    setTimeout(function() {
+        document.getElementById('loader').style.display = 'none';  // Hide loader after 5 seconds
+        document.getElementById('content').style.display = 'block';  // Show the page content
+    }, 5000);  // 5000 milliseconds = 5 seconds
+};
+
+    </script>
+    
 </body>
 
 </html>
