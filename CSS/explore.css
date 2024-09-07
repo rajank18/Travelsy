@@ -146,6 +146,11 @@ footer{
     color: #666;
 }
 
+.photosearch button{
+    width: 20vh;
+    margin-top: 8px;
+}
+
 @media (max-width: 768px) {
     #hotel-list {
         grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
