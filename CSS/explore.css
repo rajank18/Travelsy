@@ -1,158 +1,272 @@
 * {
-    margin: 0;
-    padding: 0;
-    font-family: "Montserrat", sans-serif;
+  margin: 0;
+  padding: 0;
+  font-family: "Montserrat", sans-serif;
 }
-.navbar{
-    width: 98% !important;
-}
-
-
-header h1{
-    font-size: 120px;
-    display: flex;
-    justify-content: center;
+.navbar {
+  width: 98% !important;
 }
 
-.info{
-    display: flex;
-    justify-content: center;
-    margin: auto;
+header h1 {
+  font-size: 120px;
+  display: flex;
+  justify-content: center;
 }
 
-.info img{
-    margin: 50px;
+.info {
+  display: flex;
+  justify-content: center;
+  margin: auto;
 }
 
-#cityInfo{
-    width: 600px;
-    margin: 50px;
-}
-.photohead{
-    display: flex;
-    justify-content: center;
-}
-.photohead h1{
-    margin: 3px;
+.info img {
+  margin: 50px;
 }
 
-.photosearch{
-    margin: 30px;
-    display: flex;
-    justify-content: center;
+#cityInfo {
+  width: 600px;
+  margin: 50px;
 }
-.photosearch input{
-    margin-right: 25px ;
-    padding: 15px;
+.photohead {
+  display: flex;
+  justify-content: center;
 }
-
-.photosearch input::placeholder{
-    color: black;
+.photohead h1 {
+  margin: 3px;
 }
 
-footer{
-    display: flex;
-    justify-content: center;
+.photosearch {
+  margin: 30px;
+  display: flex;
+  justify-content: center;
 }
-.images{
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    margin-bottom: 25px;
+.photosearch input {
+  margin-right: 25px;
+  padding: 15px;
+}
+
+.photosearch input::placeholder {
+  color: black;
+}
+
+footer {
+  display: flex;
+  justify-content: center;
+}
+.images {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 25px;
 }
 
 .images img {
-    border-radius: 10px;
-    width: 250px;
-    height: 250px;
-    object-fit: cover;
+  border-radius: 10px;
+  width: 250px;
+  height: 250px;
+  object-fit: cover;
 }
 
 #map {
-    height: 500px;
-    margin-bottom: 50px;
+  height: 500px;
+  margin-bottom: 50px;
 }
 #search-bar {
-    top: 10px;
-    left: 10px;
-    z-index: 1000;
-    background: white;
-    padding: 5px;
-    border-radius: 4px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  top: 10px;
+  left: 10px;
+  z-index: 1000;
+  background: white;
+  padding: 5px;
+  border-radius: 4px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
-#search-bar input{
-    padding: 18px;
-    border-radius: 10px;
-    font-size: 20px;
+#search-bar input {
+  padding: 18px;
+  border-radius: 10px;
+  font-size: 20px;
 }
 
-#search-bar input::placeholder{
-    color: black;
-    font-size: 20px;
+#search-bar input::placeholder {
+  color: black;
+  font-size: 20px;
 }
 
-#search-bar p{
-    font-size: 20px;
-    padding: 15px;
+#search-bar p {
+  font-size: 20px;
+  padding: 15px;
 }
 
-.rest{
-    display: flex;
-    justify-content: center;
+.rest {
+  display: flex;
+  justify-content: center;
 }
-.rest h1{
-    margin: 3px;
+.rest h1 {
+  margin: 3px;
 }
 
 #hotel-list {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 20px;
-    padding: 20px;
-    box-sizing: border-box;
-    margin-bottom: 30px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+  padding: 20px;
+  box-sizing: border-box;
+  margin-bottom: 30px;
 }
 
 .hotel {
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    background-color: #fff;
-    text-align: center;
-    padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  text-align: center;
+  padding: 10px;
 }
 
 .hotel img {
-    width: 100%;
-    height: auto;
-    display: block;
+  width: 100%;
+  height: auto;
+  display: block;
 }
 
 .hotel-info {
-    padding: 10px;
+  padding: 10px;
 }
 
 .hotel-info h3 {
-    font-size: 1.2em;
-    margin: 0 0 10px;
-    color: #333;
+  font-size: 1.2em;
+  margin: 0 0 10px;
+  color: #333;
 }
 
 .hotel-info p {
-    margin: 5px 0;
-    color: #666;
+  margin: 5px 0;
+  color: #666;
 }
 
-.photosearch button{
-    width: 20vh;
-    margin-top: 8px;
+.photosearch button {
+  width: 20vh;
+  margin-top: 8px;
+}
+
+.transportation{
+    height: 480px;
+    width: 1480px;
+    margin-top: -20px;
+    margin-left: 20px;
+    margin-bottom: 50px;
+    /* border: 1px solid black;
+    background-color: #79797958; */
+    border-radius: 15px;
+}
+
+.transportation-header {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    font-size: 2.3rem;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: 600;
+}
+
+.transportation-container {
+  display: flex;
+  width: 100%;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+.card {
+  margin: 30px 10px 10px 10px;
+  background-color: #f5f3f3f3;
+  border: 1px solid rgba(199, 199, 199, 0.582);
+  border-radius: 10px;
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  width: 300px;
+  -webkit-box-shadow: 0 0.313rem 0.875rem var(--secondary-l-color);
+  box-shadow: 0 0.313rem 0.875rem var(--secondary-l-color);
+  -webkit-transition: all 0.3s ease 0s;
+  transition: all 0.3s ease 0s;
+  margin-bottom: 30px;
+
+}
+
+.card2 , .card3 {
+    margin-left: 45px;
+
+}
+
+.card a {
+    text-decoration: none !important;
+  }
+
+.card::after {
+  position: absolute;
+  content: "";
+  bottom: calc(100% - 10px);
+  left: 15%;
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.card:hover {
+  -webkit-box-shadow: 0 1rem 3rem rgba(31, 45, 61, 0.125);
+  box-shadow: 0 1rem 3rem rgba(31, 45, 61, 0.125);
+}
+.card-header img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+.card-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 20px;
+  min-height: 120px;
+}
+
+.card-body h1 {
+    text-decoration: none !important;
+}
+.tag {
+  background: #cccccc;
+  border-radius: 50px;
+  font-size: 12px;
+  text-decoration: none;
+  text-decoration-line: none;
+  margin: 0;
+  color: #fff;
+  padding: 2px 10px;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.card-body p {
+  font-size: 13px;
+  margin: 0 0 40px;
+}
+.user {
+  display: flex;
+  margin-top: auto;
+}
+.user img {
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
+}
+.user-info h5 {
+  margin: 0;
+}
+.user-info small {
+  color: #545d7a;
 }
 
 @media (max-width: 768px) {
-    #hotel-list {
-        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    }
+  #hotel-list {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  }
 }
