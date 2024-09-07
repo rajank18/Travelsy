@@ -5,6 +5,7 @@
 }
 .navbar {
   width: 98% !important;
+  z-index: 3;
 }
 
 header h1 {
@@ -149,6 +150,69 @@ footer {
   width: 20vh;
   margin-top: 8px;
 }
+
+/* Hotels section*/
+.hotels {
+    text-align: center;
+    padding: 20px;
+    background-color: #f9f9f9;
+    margin: 20px 0 100px;
+
+}
+
+.hotels .hotels-header h1 {
+    font-size: 2.5em;
+    font-family: 'Poppins', sans-serif;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* Hotel images */
+.hotels .hotel-images {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    margin-bottom: 20px;
+}
+
+.hotels .hotel-images img {
+    width: 220px;
+    height: 150px;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+/* Hotel description */
+.hotels .hotel-description p {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+    color: #555;
+}
+
+/* Book Now button styling */
+.hotels .book-now {
+    margin-top: 20px;
+}
+
+.hotels .book-button {
+    background-color: #021554; /* Customize this color */
+    color: #ffa857;
+    font-weight: 500;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.5em;
+    text-decoration: none;
+    display: inline-block;
+    transition: background-color 0.3s ease;
+    
+}
+
+.hotels .book-button:hover {
+    background-color: #ffa857; /* Darker shade on hover */
+    color: #021554;
+}
+
 
 .transportation{
     height: 480px;
