@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Explore</title>
     <link rel="stylesheet" href="/Travelsy/CSS/explore.css">
+    <link rel="stylesheet" href="/Travelsy/CSS/weather.css">
     <link rel="stylesheet" href="/Travelsy/CSS/style.css">
     <link
         href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:wght@100;400&display=swap"
@@ -36,7 +37,7 @@
             <a href="/Travelsy/HTML/register.html"> <button>Sign Up</button></a>
         </div>
         <div class="signin">
-            <a href="/Travelsy/HTML/login.html"><button>Log In</button></a>
+            <a href="/Travelsy/HTML/login.html"><button>Login</button></a>
         </div>
     </div>
 
@@ -47,6 +48,15 @@
     <div class="info">
         <div id="image"><img src="" alt=""></div>
         <div id="cityInfo"></div>
+    </div>
+
+    <!--weather-->
+
+    <div>
+    <label for="placeInput">Enter Place:</label>
+    <input type="text" id="placeInput" placeholder="Enter Place" />
+    <button onclick="result()">Find</button>
+    <div class="results" id="results"></div>
     </div>
 
     <div class="photohead">

@@ -348,3 +348,76 @@ document.addEventListener('DOMContentLoaded', function () {
         searchHotels(cityName);
     }
 });
+
+//weather
+
+async function result() {
+    const placeInput = document.getElementById('placeInput').value;
+    const resultsDiv = document.getElementById('results');
+
+    if (!placeInput) {
+        resultsDiv.innerHTML = '<p>Please enter a place.</p>';
+        return;
+    }
+
+    const url = `https://weatherapi-com.p.rapidapi.com/current.json?q=${encodeURIComponent(placeInput)}`;
+    const options = {
+        method: 'GET',
+        headers: {
+            'x-rapidapi-key': '879c4e3d8fmsh7d48e509036c3cfp1dda49jsn8fa59471ca0a',
+            'x-rapidapi-host': 'weatherapi-com.p.rapidapi.com'
+        }
+    };
+
+    try {
+        const response = await fetch(url, options);
+        const result = await response.json();
+
+        // Debugging: Log the entire result
+        console.log(result);
+
+        // Clear previous results
+        resultsDiv.innerHTML = '';
+
+        if (result && result.current) {
+            const temp = result.current.temp_c;
+            const condition = result.current.condition.text.toLowerCase();
+            const humidity = result.current.humidity;
+            const wind = result.current.wind_kph;
+
+            // Debugging: Log the weather details
+            console.log(`Condition: ${condition}, Temp: ${temp}, Humidity: ${humidity}, Wind: ${wind}`);
+
+            let riskMessage = '';
+
+            // Check weather conditions for risks
+            if (condition.includes('thunder') || condition.includes('storm') || condition.includes('snow')) {
+                riskMessage = '<p><strong>Risk:</strong> Dangerous conditions due to storms or snow.</p>';
+            } else if (temp > 35 || humidity > 70) {
+                riskMessage = '<p><strong>Risk:</strong> High risk of heat exhaustion or heatstroke.</p>';
+            } else if (humidity > 80 && wind > 30) {
+                riskMessage = '<p><strong>Risk:</strong> Risk of slippery roads and poor visibility due to heavy rain and strong winds.</p>';
+            } else if (condition.includes('fog') && humidity > 80 && wind < 10) {
+                riskMessage = '<p><strong>Risk:</strong> Poor visibility due to fog. Exercise caution.</p>';
+            } else if (condition.includes('dust')) {
+                riskMessage = '<p><strong>Risk:</strong> Dust storms may cause breathing difficulties and low visibility.</p>';
+            }
+
+            resultsDiv.innerHTML = `
+                <h2>Weather in ${result.location.name}</h2>
+                <p><strong>Temperature:</strong> ${temp} °C</p>
+                <p><strong>Condition:</strong> ${result.current.condition.text}</p>
+                <p><strong>Humidity:</strong> ${humidity} %</p>
+                <p><strong>Wind:</strong> ${wind} kph</p>
+                <p><strong></strong> ${riskMessage}</p>
+            `;
+
+            console.log(riskMessage)
+        } else {
+            resultsDiv.innerHTML = '<p>No weather data found.</p>';
+        }
+    } catch (error) {
+        console.error(error);
+        resultsDiv.innerHTML = '<p>Error fetching weather data. Please try again later.</p>';
+    }
+}
