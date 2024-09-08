@@ -3,6 +3,6 @@ document.getElementById('submit').addEventListener('click', function(event) {
     document.getElementById('message').innerHTML = `
         Your review has been submitted.
         <br>
-        <button type="button" class="btn btn-outline-success" id="home"><a href="/Travelsy/HTML/index.html">Home</a></button>
+        <button type="button" class="btn btn-warning" id="home"><a href="/Travelsy/HTML/index.html">Home</a></button>
     `;
 });
