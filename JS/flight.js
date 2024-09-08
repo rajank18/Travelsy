@@ -60,6 +60,7 @@ function displayResults(itineraries) {
 
     itineraries.forEach(itinerary => {
         const price = itinerary.price.formatted;
+        localStorage.setItem('flightPrice', price);
         const flightId = itinerary.id;
         const legs = itinerary.legs;
 
@@ -115,3 +116,7 @@ document.getElementById('flightForm').addEventListener('submit', async function(
         alert("Error fetching location data. Please try again.");
     }
 });
+
+function redirectToFlightBooking() {
+    window.location.href = 'flightbook.html'; 
+}
