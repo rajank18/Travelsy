@@ -23,6 +23,7 @@ window.onload = function () {
         fetchCityData(cityName);
         searchHotels(cityName);
         searchCity(cityName);
+        result(cityName);
     }
 }
 
@@ -351,16 +352,15 @@ document.addEventListener('DOMContentLoaded', function () {
 
 //weather
 
-async function result() {
-    const placeInput = document.getElementById('placeInput').value;
+async function result(cityName) {
     const resultsDiv = document.getElementById('results');
 
-    if (!placeInput) {
+    if (!cityName) {
         resultsDiv.innerHTML = '<p>Please enter a place.</p>';
         return;
     }
 
-    const url = `https://weatherapi-com.p.rapidapi.com/current.json?q=${encodeURIComponent(placeInput)}`;
+    const url = `https://weatherapi-com.p.rapidapi.com/current.json?q=${encodeURIComponent(cityName)}`;
     const options = {
         method: 'GET',
         headers: {
@@ -373,9 +373,6 @@ async function result() {
         const response = await fetch(url, options);
         const result = await response.json();
 
-        // Debugging: Log the entire result
-        console.log(result);
-
         // Clear previous results
         resultsDiv.innerHTML = '';
 
@@ -385,10 +382,8 @@ async function result() {
             const humidity = result.current.humidity;
             const wind = result.current.wind_kph;
 
-            // Debugging: Log the weather details
-            console.log(`Condition: ${condition}, Temp: ${temp}, Humidity: ${humidity}, Wind: ${wind}`);
-
             let riskMessage = '';
+            console.log('Condition:', condition);
 
             // Check weather conditions for risks
             if (condition.includes('thunder') || condition.includes('storm') || condition.includes('snow')) {
@@ -409,10 +404,8 @@ async function result() {
                 <p><strong>Condition:</strong> ${result.current.condition.text}</p>
                 <p><strong>Humidity:</strong> ${humidity} %</p>
                 <p><strong>Wind:</strong> ${wind} kph</p>
-                <p><strong></strong> ${riskMessage}</p>
+                ${riskMessage}
             `;
-
-            console.log(riskMessage)
         } else {
             resultsDiv.innerHTML = '<p>No weather data found.</p>';
         }
