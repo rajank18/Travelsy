@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather Search</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        label {
+            margin-right: 10px;
+        }
+
+        input[type="text"] {
+            padding: 8px;
+            font-size: 16px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 4px;
+            border: none;
+            background-color: #007bff;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .results {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            background-color: #fff;
+            width: 300px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <label for="placeInput">Enter Place:</label>
+    <input type="text" id="placeInput" placeholder="Enter Place" />
+    <button onclick="result()">Find</button>
+    <div class="results" id="results"></div>
+
+    <script>
+        async function result() {
+            const placeInput = document.getElementById('placeInput').value;
+            const resultsDiv = document.getElementById('results');
+
+            if (!placeInput) {
+                resultsDiv.innerHTML = '<p>Please enter a place.</p>';
+                return;
+            }
+
+            const url = `https://weatherapi-com.p.rapidapi.com/current.json?q=${encodeURIComponent(placeInput)}`;
+            const options = {
+                method: 'GET',
+                headers: {
+                    'x-rapidapi-key': '879c4e3d8fmsh7d48e509036c3cfp1dda49jsn8fa59471ca0a',
+                    'x-rapidapi-host': 'weatherapi-com.p.rapidapi.com'
+                }
+            };
+
+            try {
+                const response = await fetch(url, options);
+                const result = await response.json();
+
+                // Clear previous results
+                resultsDiv.innerHTML = '';
+
+                if (result && result.current) {
+                    resultsDiv.innerHTML = `
+                        <h2>Weather in ${result.location.name}</h2>
+                        <p><strong>Temperature:</strong> ${result.current.temp_c} °C</p>
+                        <p><strong>Condition:</strong> ${result.current.condition.text}</p>
+                        <p><strong>Humidity:</strong> ${result.current.humidity} %</p>
+                        <p><strong>Wind:</strong> ${result.current.wind_kph} kph</p>
+                    `;
+                } else {
+                    resultsDiv.innerHTML = '<p>No weather data found.</p>';
+                }
+            } catch (error) {
+                console.error(error);
+                resultsDiv.innerHTML = '<p>Error fetching weather data. Please try again later.</p>';
+            }
+        }
+    </script>
+</body>
+</html>

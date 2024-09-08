@@ -1,0 +1,61 @@
+.flight-card {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 15px;
+    width: 300px;
+    display: inline-block;
+    vertical-align: top;
+    text-align: center;
+    background-color: #f9f9f9;
+}
+
+.flight-card img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+/* Price styling */
+.flight-price {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #4CAF50;
+    margin-bottom: 15px;
+}
+
+/* Flight details styling */
+.flight-details {
+    font-size: 0.9em;
+    line-height: 1.6;
+}
+
+/* Container to hold all flight cards */
+.results-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/* Search form styling */
+form {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+input, button {
+    margin: 5px;
+    padding: 10px;
+    font-size: 1em;
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
