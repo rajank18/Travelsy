@@ -1,3 +1,7 @@
+*{
+    margin: 0;
+    padding: 0 ;
+}
 .flight-card {
     border: 1px solid #ddd;
     border-radius: 10px;
@@ -7,8 +11,15 @@
     width: 300px;
     display: inline-block;
     vertical-align: top;
-    text-align: center;
+    text-align: left;
+    font-size: 18px;
     background-color: #f9f9f9;
+}
+
+.flight-card:hover{
+    width: 320px;
+    transition: all 0.5s;
+    cursor: pointer;
 }
 
 .flight-card img {
@@ -21,6 +32,8 @@
     font-size: 1.5em;
     font-weight: bold;
     color: #4CAF50;
+    display: flex;
+    justify-content: center;
     margin-bottom: 15px;
 }
 
@@ -50,12 +63,35 @@ input, button {
 }
 
 button {
-    background-color: #4CAF50;
+    background-color: #ffa857;
     color: white;
     border: none;
     cursor: pointer;
+    font-size: 20px;
 }
 
 button:hover {
-    background-color: #45a049;
+    background-color: #ff9737;
+}
+
+h1{
+    display: flex;
+    justify-content: center;
+    font-size: 50px;
+    margin-bottom: 15px;
+}
+
+.img{
+    display: flex;
+    justify-content: center;
+    background-color: #021554;
+    margin-bottom: 25px;
+}
+input{
+    font-size: 20px;
+}
+
+a{
+    text-decoration: none;
+    color: black;
 }
