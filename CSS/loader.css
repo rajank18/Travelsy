@@ -1,6 +1,7 @@
 body {
     background-color: #fff;
     font-family: 'Roboto', sans-serif;
+    
 }
 
 .loader {
@@ -11,6 +12,7 @@ body {
     max-width: 53rem;
     height: 30rem;
     margin: 0 auto;
+    overflow-y: hidden;
 }
 
 .wait {

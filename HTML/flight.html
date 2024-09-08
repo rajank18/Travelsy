@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/Travelsy/CSS/flight.css">
+    
+    <title>Flight Search</title>
+    
+</head>
+<body>
+    <h1>Search Flights</h1>
+
+    <!-- Search Form -->
+    <form id="flightForm">
+        <input type="text" id="origin" placeholder="Enter Origin" required>
+        <input type="text" id="destination" placeholder="Enter Destination" required>
+        <input type="date" id="departureDate" required>
+        <button type="submit">Search Flights</button>
+    </form>
+
+    <div id="results" class="results-container"></div>
+
+    <script src="/Travelsy/JS/flight.js"></script>
+
+</body>
+</html>
