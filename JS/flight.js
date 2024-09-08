@@ -81,7 +81,7 @@ function displayResults(itineraries) {
             const html = `
                 <div class="flight-card">
                     <img src="https://content.skyscnr.com/m/3719e8f4a5daf43d/original/Flights-Placeholder.jpg" alt="Flight Image">
-                    <div class="flight-price">${price}</div>
+                    <div class="flight-price">${price} </div>
                     <div class="flight-details">
                         <strong>Flight ID:</strong> ${flightId}<br>
                         <strong>Origin:</strong> ${origin}<br>
