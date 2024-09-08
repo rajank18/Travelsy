@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flight Search</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+        }
+
+        .container {
+            width: 50%;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-top: 50px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-size: 18px;
+        }
+
+        input,
+        select,
+        button {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            font-size: 16px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .results-container {
+            margin-top: 20px;
+        }
+
+        .result-item {
+            padding: 10px;
+            border: 1px solid #ddd;
+            margin-bottom: 10px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Flight Search</h1>
+        <form id="flightSearchForm">
+            <label for="fromAirport">From Airport Code:</label>
+            <input type="text" id="fromAirport" name="fromAirport" placeholder="Enter Source IATA Code (e.g., BOM)"
+                required>
+
+            <label for="toAirport">To Airport Code:</label>
+            <input type="text" id="toAirport" name="toAirport" placeholder="Enter Destination IATA Code (e.g., DEL)"
+                required>
+
+            <label for="tripType">Trip Type:</label>
+            <select id="tripType" name="tripType" required>
+                <option value="oneway">One Way</option>
+                <option value="roundtrip">Round Trip</option>
+            </select>
+
+            <button type="submit">Search Flights</button>
+        </form>
+    </div>
+    <div id="results"></div>
+
+
+    <script src="/Travelsy/JS/flight.js"></script>
+</body>
+
+</html>
