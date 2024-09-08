@@ -91,6 +91,7 @@ input[type="text"] {
     background-color: #ffa857;
     color: darkblue;
     font-size: 1.3rem;
+    align-self: flex-start;
 }
 .add{
     padding-top: 10px;   
@@ -133,6 +134,21 @@ input[type="text"]:hover{
     margin-bottom: 5px;
     font-size: 18px;
 }
+ .result-item button {
+    width: 35%;
+    font-size: 16px;
+    border-radius: 17px;
+    height: 38px;
+    background-color: #ffa857;
+    color: darkblue;
+    font-size: 1.3rem;           
+    cursor: pointer;
+        }
+
+    .result-item button:hover {
+            background-color: #ffa857;
+            color: #333333;
+        }
 .new_footer_area {
     margin-top: 50px;
     background: #021554;

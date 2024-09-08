@@ -81,6 +81,7 @@ function displayResults(fare) {
                         <p><strong>Fare (${fareDetail.name}):</strong> ₹${discountedPrice}</p>
                     `;
                 }).join('')}
+                <button>Proceed to pay</button>
             </div>
         `;
         resultsDiv.innerHTML = fareInfo;
