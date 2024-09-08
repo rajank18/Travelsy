@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel Booking - Travelsy</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: "Montserrat", sans-serif;
+        }
+
+        body {
+            margin-top: 80px;
+            background-color: #fbfbfd;
+        }
+
+        .navbar {
+            display: flex;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 80px;
+            z-index: 1000;
+            padding: 0 20px;
+            background-color: #021554;
+        }
+
+        .navbar .img img {
+            height: 80px;
+            width: auto;
+            cursor: pointer;
+        }
+
+        .booking-container {
+            max-width: 600px;
+            margin: 40px auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 0.313rem 0.875rem rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #021554;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        label {
+            display: block;
+            margin-top: 15px;
+            color: #021554;
+            font-weight: 600;
+        }
+
+        input,
+        select {
+            width: 95%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #021554;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        button {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            margin-top: 20px;
+            background-color: #021554;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #ffa857;
+            color: #333333;
+        }
+
+        #result {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #f0f0f0;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+
+        .new_footer_area {
+            margin-top: 50px;
+            background: #021554;
+            color: #ffffff;
+        }
+
+        .new_footer_top {
+            padding: 50px 0;
+            text-align: center;
+        }
+
+        .footer_bottom {
+            background-color: #021554;
+            color: #ffa857;
+            text-align: center;
+            padding: 10px 0;
+            font-size: 14px;
+        }
+
+        .navbar {
+            display: flex;
+            align-items: center;
+            position: fixed;
+            /* Changed to fixed */
+            top: 0;
+            left: 0;
+            width: 98%;
+            height: 80px;
+            z-index: 1000;
+            /* Higher z-index to stay on top */
+            padding: 0 20px;
+            background-color: #021554;
+            /* Semi-transparent background */
+
+        }
+
+        .navbar .img {
+            margin-right: auto;
+        }
+
+        .navbar .img img {
+            height: 80px;
+            width: auto;
+            cursor: pointer;
+        }
+
+        .navbar .signup,
+        .navbar .signin {
+            margin-left: 20px;
+        }
+
+        button {
+            outline: none;
+            border: none;
+            background-color: #ffa857;
+            width: 110%;
+            color: rgb(0, 0, 0);
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            font-weight: 300;
+            font-size: 18px;
+            margin: 0;
+            height: 50%;
+            border-radius: 25px;
+            cursor: pointer;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .cal {
+            margin-top: 15px;
+            width: 50%;
+            padding: 6px;
+            text-align: center;
+            height: 25%;
+        }
+
+        button:hover {
+            background-color: #fc993c;
+        }
+
+        #proceedToPay {
+            display: none;
+            margin-top: 20px;
+            width: 50%;
+            padding: 12px;
+            background-color: #021554;
+            color: white;
+            border: none;
+            border-radius: 25px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        #proceedToPay:hover {
+            background-color: #ffa857;
+            color: #333333;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="img">
+            <img src="/Travelsy/Assets/images/LOGO.png" alt="Travelsy Logo">
+        </div>
+        <div class="signup">
+            <a href="/Travelsy/HTML/register.html"> <button>Sign Up</button></a>
+        </div>
+        <div class="signin">
+            <a href="/Travelsy/HTML/login.html"><button>Log In</button></a>
+        </div>
+    </nav>
+
+    <div class="booking-container">
+        <h1>Hotel Booking</h1>
+        <form id="bookingForm">
+            <label for="mobile">Mobile Number:</label>
+            <input type="tel" id="mobile" required>
+
+            <label for="persons">Number of Persons:</label>
+            <input type="number" id="persons" min="1" required>
+
+            <label for="roomType">Room Type:</label>
+            <select id="roomType">
+                <option value="single">Single (Max 1 person)</option>
+                <option value="double">Double (Max 2 persons)</option>
+                <option value="family">Family (Max 4 persons)</option>
+            </select>
+
+            <label for="nights">Number of Nights:</label>
+            <input type="number" id="nights" min="1" required>
+
+            <button class="cal" type="button" onclick="calculateBooking()">Calculate Booking</button>
+        </form>
+        <div id="result"> </div>
+        <button id="proceedToPay" onclick="proceedToPayment()">Proceed to Pay</button>
+    </div>
+
+
+    <div class="new_footer_area">
+        <div class="new_footer_top">
+            <p>&copy; 2024 Travelsy. All rights reserved.</p>
+        </div>
+        <div class="footer_bottom">
+            <p>Made by Team Eureka!</p>
+        </div>
+    </div>
+
+    <script>
+        function calculateBooking() {
+            const mobile = document.getElementById('mobile').value;
+            const persons = parseInt(document.getElementById('persons').value);
+            const roomType = document.getElementById('roomType').value;
+            const nights = parseInt(document.getElementById('nights').value);
+
+            let roomCapacity;
+            let roomPrice;
+
+            switch (roomType) {
+                case 'single':
+                    roomCapacity = 1;
+                    roomPrice = 50;
+                    break;
+                case 'double':
+                    roomCapacity = 2;
+                    roomPrice = 80;
+                    break;
+                case 'family':
+                    roomCapacity = 4;
+                    roomPrice = 120;
+                    break;
+            }
+
+            const numRooms = Math.ceil(persons / roomCapacity);
+            const totalPrice = numRooms * roomPrice * nights;
+
+            let resultMessage = `Booking Summary:<br>
+                                 Mobile: ${mobile}<br>
+                                 Persons: ${persons}<br>
+                                 Room Type: ${roomType.charAt(0).toUpperCase() + roomType.slice(1)}<br>
+                                 Nights: ${nights}<br>
+                                 Number of Rooms: ${numRooms}<br>
+                                 Total Price: $${totalPrice}`;
+
+            if (persons > numRooms * roomCapacity) {
+                resultMessage += `<br><br>Warning: The number of persons exceeds the room capacity. 
+                                  Consider booking a larger room or additional rooms.`;
+            }
+
+            document.getElementById('result').innerHTML = resultMessage;
+            document.getElementById('proceedToPay').style.display = 'block';
+        }
+
+        function proceedToPayment() {
+            // Add your payment processing logic here
+            alert('Proceeding to payment...');
+            // You can redirect to a payment page or open a payment modal here
+        }
+    </script>
+</body>
+
+</html>

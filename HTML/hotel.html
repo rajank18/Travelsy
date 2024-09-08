@@ -7,6 +7,9 @@
     <link rel="icon" type="image/x-icon" href="/Travelsy/Assets/icons/logo (1).ico">
     <title>Hotel Booking</title>
     <style>
+        body{
+            margin: 0;
+        }
         .navbar {
             display: flex;
             align-items: center;
@@ -60,6 +63,7 @@
 
         .hotel-list {
             margin-top: 30px;
+            margin-left: 20px;
             padding: 30px;
             border: 1px solid black;
             border-radius: 10px;
@@ -94,10 +98,11 @@
             align-items: center;
             gap: 15px;
         }
-
+        
         /* Input fields */
         .search-input,
         .date-input {
+            
             padding: 12px 20px;
             border: 1px solid #ddd;
             border-radius: 25px;
@@ -220,6 +225,27 @@
             /* cursor: pointer; */
             border-radius: 8px;
         }
+        footer{
+            margin: 0;
+        }
+        .new_footer_area {
+            margin-top: 50px;
+            background: #021554;
+            color: #ffffff;
+        }
+
+        .new_footer_top {
+            padding: 50px 0;
+            text-align: center;
+        }
+
+        .footer_bottom {
+            background-color: #021554;
+            color: #ffa857;
+            text-align: center;
+            padding: 10px 0;
+            font-size: 14px;
+        }
     </style>
 </head>
 
@@ -255,7 +281,7 @@
                     d="M20.1069 20.1754L21.9521 21.9984M21.1691 17.6381C21.1691 19.6048 19.5752 21.1991 17.609 21.1991C15.6428 21.1991 14.0488 19.6048 14.0488 17.6381C14.0488 15.6714 15.6428 14.0771 17.609 14.0771C19.5752 14.0771 21.1691 15.6714 21.1691 17.6381Z"
                     stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
             </svg>
-            <input type="text" placeholder="Enter City" style="border: white;" />
+            <input type="text" placeholder="Enter City" style="border: white; " />
         </div>
         <div class="check" onclick="document.getElementById('datepicker').focus()">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" color="#000000"
@@ -311,9 +337,13 @@
         <!-- Repeat for other hotels -->
     </section>
 
-    <footer>
-        <p>Contact us: info@hotelbooking.com | +123-456-7890</p>
-        <p>&copy; 2024 Hotel Booking. All Rights Reserved.</p>
+    <footer class="new_footer_area">
+        <div class="new_footer_top">
+            <p>&copy; 2023 Travelsy. All rights reserved.</p>
+        </div>
+        <div class="footer_bottom">
+            <p>Made by Team Eureka!</p>
+        </div>
     </footer>
     <script>
         // Ensures that clicking on the container opens the datepicker
