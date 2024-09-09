@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Flight Booking - Travelsy</title>
+    <link rel="icon" type="image/x-icon" href="/Travelsy/Assets/icons/logo (1).ico">
+    <title>Travelsy - Flight Booking</title>
     <style>
         * {
             margin: 0;
@@ -15,6 +16,9 @@
         body {
             margin-top: 80px;
             background-color: #fbfbfd;
+            background-image: url(/Travelsy/Assets/images/flightbookingbg.webp);
+            height: 95vh;
+
         }
 
         .navbar {
@@ -38,11 +42,14 @@
 
         .booking-container {
             max-width: 600px;
-            margin: 40px auto;
-            padding: 20px;
-            background-color: #ffffff;
+            margin: 200px auto;
+            padding: 50px;
+            background-color: transparent;
+            backdrop-filter: blur(10px);
             border-radius: 15px;
             box-shadow: 0 0.313rem 0.875rem rgba(0, 0, 0, 0.1);
+            border: 2px solid rgba(120, 120, 120, 0.619);
+
         }
 
         h1 {
@@ -83,7 +90,7 @@
         }
 
         button:hover {
-            background-color: #ffa857;
+            background-color: #021554;
             color: #333333;
         }
 
@@ -226,6 +233,7 @@
                 <option value="double">Business</option>
                 <option value="family">First Class</option>
             </select>
+            
 
             <button class="cal" type="button" onclick="calculateBooking()">Calculate Booking</button>
         </form>
@@ -247,51 +255,57 @@
 
     <script>
         async function calculateBooking() {
-            const classType = document.getElementById("classtype").value;
-            const numTickets = document.getElementById("tickets").value;
-    
-            // Retrieve the flight price from localStorage
-            let flightPrice = localStorage.getItem('flightPrice');
-            if (!flightPrice) {
-                document.getElementById("result").innerHTML = `Error: Flight price not found.`;
-                return;
-            }
-    
-            flightPrice = parseFloat(flightPrice.replace(/[₹,]/g, ''));  // Convert price to number
-    
-            let pricePerTicket;
-    
-            // Determine the price based on the class type
-            switch (classType) {
-                case 'Economy':
-                    pricePerTicket = flightPrice;  // Use base price for Economy
-                    break;
-                case 'Business':
-                    pricePerTicket = flightPrice * 1.5;  // Assuming Business is 1.5x Economy price
-                    break;
-                case 'First Class':
-                    pricePerTicket = flightPrice * 2;  // Assuming First Class is 2x Economy price
-                    break;
-                default:
-                    pricePerTicket = 0;
-            }
-    
-            const totalPrice = pricePerTicket * numTickets;
-    
-            // Display the total price
-            document.getElementById("result").innerHTML = `Total Price: ₹${totalPrice.toLocaleString()}`;
-    
-            // Show the "Proceed to Pay" button
-            document.getElementById("proceedToPay").style.display = 'block';
-        }
-        
-        function proceedToPayment() {
-            alert("Redirecting to payment gateway...");
-            // Add your payment gateway logic here
-        }
-    </script>
+    const classType = document.getElementById("classtype").value;
+    console.log(classType)
+    const numTickets = (document.getElementById("tickets").value);
+
+    // Retrieve the flight price from localStorage
+    let flightPrice = localStorage.getItem('flightPrice');
+    console.log('Flight price retrieved:', flightPrice);
+
+    if (!flightPrice) {
+        document.getElementById("result").innerHTML = `Error: Flight price not found.`;
+        return;
+    }
+
+    // Remove currency symbol (₹) and commas from the price
+    let pricePerTicket; let pprice = flightPrice;
+  
+    pprice = pprice.substring(2).replace(/,/g, '');
+
+// Convert the cleaned string to a number
+    pprice = parseFloat(pprice);
+
     
 
+    // Determine the price based on the class type
+    switch (classType) {
+        case 'single':
+           pprice = pprice *1;  // Use base price for Economy
+            break;
+        case 'double':
+        console.log(pprice)
+            pprice = pprice * 1.5;  // Assuming Business is 1.5x Economy price
+            break;
+        case 'family':
+        console.log(pprice)
+            pprice = pprice * 2;  // Assuming First Class is 2x Economy price
+            break;
+        default:
+        pprice = pprice *1;
+    }
+
+    let totalPrice = pprice * numTickets;
+    
+
+    // Display the total price
+    document.getElementById("result").innerHTML = `Total Price: ₹ ${totalPrice.toLocaleString()}`;
+
+    // Show the "Proceed to Pay" button
+    document.getElementById("proceedToPay").style.display = 'block';
+}
+
+    </script>
 </body>
 
 </html>
