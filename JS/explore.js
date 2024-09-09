@@ -327,7 +327,7 @@ function searchHotels(cityName) {
 
     if (locationId) {
         xhr.open('GET', `https://tripadvisor16.p.rapidapi.com/api/v1/restaurant/searchRestaurants?locationId=${locationId}`);
-        xhr.setRequestHeader('x-rapidapi-key', '9a9dee9c97mshae5be1fb932b74ep1548eejsndb8d2b6f2697');
+        xhr.setRequestHeader('x-rapidapi-key', '9a8cf7fcfbmsh4f66dcae7027bf7p1a3a53jsn789ae4a636f9');
         xhr.setRequestHeader('x-rapidapi-host', 'tripadvisor16.p.rapidapi.com');
 
         xhr.send(null);
